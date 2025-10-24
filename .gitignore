@@ -1,0 +1,151 @@
+# =============================================================================
+# SCHOLAR AI PROJECT - GITIGNORE
+# =============================================================================
+# This file consolidates ignore patterns for both backend and frontend
+# Best practice: Single .gitignore at project root for monorepos
+#
+# Structure:
+# - Backend patterns: Go-specific files, build outputs, test artifacts
+# - Frontend patterns: Node.js dependencies, build outputs, cache files  
+# - Shared patterns: IDE files, logs, temporary files, environment variables
+# - Project specific: Configuration files with secrets, documentation
+#
+# Note: Individual .gitignore files in backend/ and frontend/ have been removed
+# to avoid conflicts and maintain consistency across the monorepo.
+
+# =============================================================================
+# BACKEND (Go/API) - Ignore Patterns
+# =============================================================================
+
+# Go binaries and executables
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+web
+main
+
+# Go test binaries
+*.test
+
+# Go coverage tool output
+*.out
+coverage.txt
+coverage.html
+coverage/
+*.cover
+
+# Go workspace files
+go.work
+go.work.sum
+
+# Go dependencies
+vendor/
+
+# Go build output
+backend/bin/
+backend/dist/
+backend/build/
+
+# Go profiling data
+*.prof
+*.pprof
+cpu.pprof
+mem.pprof
+
+# Go race detector output
+*.race
+
+# Go module cache (uncomment if needed)
+# go.sum
+
+# =============================================================================
+# FRONTEND (React/Next.js) - Ignore Patterns
+# =============================================================================
+
+# Node.js dependencies
+frontend/node_modules/
+node_modules/
+
+# Frontend build outputs
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/out/
+
+# Frontend package manager files
+frontend/package-lock.json
+frontend/yarn.lock
+frontend/pnpm-lock.yaml
+frontend/bun.lockb
+
+# Frontend environment files
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Frontend cache directories
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.turbo/
+
+# =============================================================================
+# SHARED - Common Ignore Patterns
+# =============================================================================
+
+# Environment variables - CRITICAL: never commit secrets
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# Database files (local development)
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration files with secrets
+backend/config/development.yaml
+backend/config/production.yaml
+backend/config/local.yaml
+
+# =============================================================================
+# PROJECT SPECIFIC - Scholar AI
+# =============================================================================
+
+# API documentation (auto-generated)
+backend/docs/docs.go
+backend/docs/swagger.json
+backend/docs/swagger.yaml
+
+# Air live reload (Go hot reload)
+backend/.air.toml
+
+# Build artifacts
+backend/web
+frontend/web
